@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
+    tools:context=".presentation.ResultFragment">
+
+    <TextView
+        android:id="@+id/req_answer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="the required number of correct answers"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/score_answer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="150dp"
+        app:layout_constraintVertical_chainStyle="spread"
+        /><TextView
+    android:id="@+id/score_answer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="score"
+    android:layout_marginTop="16dp"
+    app:layout_constraintBottom_toTopOf="@id/percenteg"
+        app:layout_constraintStart_toStartOf="@id/req_answer"
+        app:layout_constraintEnd_toEndOf="@id/req_answer"
+        app:layout_constraintTop_toBottomOf="@id/req_answer"
+
+        /><TextView
+    android:id="@+id/percenteg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+    android:layout_marginTop="16dp"
+    android:fontFamily="@font/annie_use_your_telescope"
+        android:text="Required percentage of correct answers"
+    app:layout_constraintBottom_toTopOf="@id/percent_right_answer"
+        app:layout_constraintStart_toStartOf="@id/score_answer"
+        app:layout_constraintEnd_toEndOf="@id/score_answer"
+        app:layout_constraintTop_toBottomOf="@id/score_answer"
+
+        /><TextView
+    android:id="@+id/percent_right_answer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+    android:layout_marginTop="16dp"
+    android:textColor="@color/white"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="percentage of correct answers"
+        app:layout_constraintStart_toStartOf="@id/percenteg"
+        app:layout_constraintEnd_toEndOf="@id/percenteg"
+        app:layout_constraintTop_toBottomOf="@id/percenteg"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_restart"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="@string/restart"
+        android:textSize="45sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    tools:context=".presentation.ChooseLevelFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CHOOSE LEVEL"
+        android:textColor="@color/white"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:textSize="50sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_test"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="test"
+        android:textSize="45sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:layout_marginTop="100dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_easy"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="easy"
+        android:textSize="45sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_normal"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="normal"
+        android:textSize="45sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_hard"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/annie_use_your_telescope"
+        android:text="hard"
+        android:textSize="45sp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"/>
+
+
+
+
+
+
+</LinearLayout>

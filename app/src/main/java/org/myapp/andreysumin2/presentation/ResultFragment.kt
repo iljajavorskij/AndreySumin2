@@ -37,6 +37,42 @@ class ResultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setClickListeners()
+        bindViews()
+    }
+
+    private fun bindViews() {
+        with(mBinbing){
+            reqAnswer.text = String.format(
+             getString(
+                 R.string.the_required_number_s_of_correct_answers_s)
+             ,result.gameSettings.minCountForRightAnswers,result.countOfQuestions)
+
+            scoreAnswer.text = String.format(
+                getString(R.string.score_s),result.countOfRightAnswer)
+            percenteg.text = String.format(
+                getString(R.string.required_percentage_of_correct_answers_s)
+                ,result.gameSettings.minPercentOfRightAnswers)
+            percentRightAnswer.text = String.format(
+                getString(R.string.percentage_of_correct_answers_s_min_s),getPercent(),result.gameSettings.minPercentOfRightAnswers
+            )
+        }
+    }
+
+    private fun getPercent() = with(result){
+       if (countOfQuestions == 0){
+           0
+       }else{
+           ((countOfRightAnswer / countOfQuestions.toDouble())*100).toInt()
+       }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _mBinding = null
+    }
+
+    private fun setClickListeners(){
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,object :OnBackPressedCallback(true){
             override fun handleOnBackPressed() {
                 retryGame()
@@ -47,17 +83,15 @@ class ResultFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _mBinding = null
-    }
-
     fun parsParams(){
-        result = requireArguments().getSerializable(KEY_GAME_RESULT) as GameResult
+        requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT)?.let {
+            result = it
+        }
     }
 
     private fun retryGame(){
-        requireActivity().supportFragmentManager.popBackStack(ChooseLevelFragment.NAME,FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        requireActivity().supportFragmentManager
+            .popBackStack(ChooseLevelFragment.NAME,FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
 
     companion object{
@@ -66,7 +100,7 @@ class ResultFragment : Fragment() {
         fun newInstance(gameResult: GameResult):ResultFragment{
             return ResultFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(KEY_GAME_RESULT,gameResult)
+                    putParcelable(KEY_GAME_RESULT,gameResult)
                 }
             }
         }

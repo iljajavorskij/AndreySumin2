@@ -4,4 +4,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="start">START</string>
     <string name="restart">restart</string>
+    <string name="the_required_number_s_of_correct_answers_s">the required number %s of correct answers %s</string>
+    <string name="score_s">score: %s</string>
+    <string name="p">?</string>
+    <string name="required_percentage_of_correct_answers_s">Required percentage of correct answers %s</string>
+    <string name="percentage_of_correct_answers_s_min_s">percentage of correct answers %s (min %s)</string>
 </resources>

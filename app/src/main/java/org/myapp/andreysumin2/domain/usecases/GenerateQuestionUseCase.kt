@@ -3,7 +3,7 @@ package org.myapp.andreysumin2.domain.usecases
 import org.myapp.andreysumin2.domain.entity.Questions
 import org.myapp.andreysumin2.domain.repository.GameRepository
 
-class GenerateQuestionUseCase(
+class GenerateQuestionUseCase (
 private val repository: GameRepository
 ) {
     operator fun invoke(maxSumValue:Int):Questions{

@@ -34,9 +34,11 @@ class GameFragment : Fragment() {
 
     }
 
+    private val gameViewModelFactory by lazy {
+        GameViewModelFactory(requireActivity().application,level)
+    }
     private val viewModel by lazy {
-        ViewModelProvider(this,
-            AndroidViewModelFactory.getInstance(requireActivity().application))[GameFragmentViewModel::class.java]
+        ViewModelProvider(this,gameViewModelFactory)[GameFragmentViewModel::class.java]
     }//оператор лэйзи означает что переменная проинициализируется при первом обращении к ней(лениая реализация)
 
     private var _mBinding:FragmentGameBinding? = null
@@ -60,7 +62,6 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
         setClickListener()
-        viewModel.startGame(level)
 
     }
 

@@ -97,6 +97,7 @@ class ResultFragment : Fragment() {
     companion object{
 
         private const val KEY_GAME_RESULT = "result"
+
         fun newInstance(gameResult: GameResult):ResultFragment{
             return ResultFragment().apply {
                 arguments = Bundle().apply {

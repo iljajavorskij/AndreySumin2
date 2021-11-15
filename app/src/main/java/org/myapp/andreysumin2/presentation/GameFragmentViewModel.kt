@@ -16,12 +16,12 @@ import org.myapp.andreysumin2.domain.repository.GameRepository
 import org.myapp.andreysumin2.domain.usecases.GenerateQuestionUseCase
 import org.myapp.andreysumin2.domain.usecases.GetGameSettingsUseCase
 
-class GameFragmentViewModel(application: Application):AndroidViewModel(application) {
+class GameFragmentViewModel(
+    private val application: Application,
+    private val level: Level
+):ViewModel() {
 
     private lateinit var gameSettings:GameSettings
-    private lateinit var level: Level
-    
-    private val context = application
 
     val repository = GameRepositiryImpl
 
@@ -66,8 +66,12 @@ class GameFragmentViewModel(application: Application):AndroidViewModel(applicati
     val gameResult:LiveData<GameResult>
         get() = _gameResult
 
-    fun startGame(level: Level){
-        getGameSettings(level)
+    init {
+        startGame()
+    }
+
+    private fun startGame(){
+        getGameSettings()
         startTimer()
         generateQuestions()
         updateProgress()
@@ -83,7 +87,7 @@ class GameFragmentViewModel(application: Application):AndroidViewModel(applicati
       val percent = calcProgressRightAnswer()
         _percentAnswer.value = percent
         _progressAnswer.value = String.format(
-            context.resources.getString(R.string.percentage_of_correct_answers_s_min_s),
+            application.resources.getString(R.string.percentage_of_correct_answers_s_min_s),
             countRightAnswer,
             gameSettings.minCountForRightAnswers
         )
@@ -105,8 +109,7 @@ class GameFragmentViewModel(application: Application):AndroidViewModel(applicati
         countQuestions++
     }
 
-    private fun getGameSettings(level: Level){
-        this.level = level
+    private fun getGameSettings(){
         this.gameSettings = getGameSettingsUseCase(level)
     }
 

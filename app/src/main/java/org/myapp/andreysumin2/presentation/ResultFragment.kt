@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import org.myapp.andreysumin2.R
 import org.myapp.andreysumin2.databinding.FragmentGameBinding
 import org.myapp.andreysumin2.databinding.FragmentResultBinding
@@ -17,16 +18,13 @@ import java.lang.RuntimeException
 
 class ResultFragment : Fragment() {
 
-    private lateinit var result: GameResult
+
 
     private var _mBinding: FragmentResultBinding? = null
     private val mBinbing: FragmentResultBinding
         get() = _mBinding ?: throw RuntimeException("FragmentGameBinding == null")
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        parsParams()
-    }
+     private val args by navArgs<ResultFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,20 +45,20 @@ class ResultFragment : Fragment() {
             reqAnswer.text = String.format(
              getString(
                  R.string.the_required_number_s_of_correct_answers_s)
-             ,result.gameSettings.minCountForRightAnswers,result.countOfQuestions)
+             ,args.gameResult.gameSettings.minCountForRightAnswers,args.gameResult.countOfQuestions)
 
             scoreAnswer.text = String.format(
-                getString(R.string.score_s),result.countOfRightAnswer)
+                getString(R.string.score_s),args.gameResult.countOfRightAnswer)
             percenteg.text = String.format(
                 getString(R.string.required_percentage_of_correct_answers_s)
-                ,result.gameSettings.minPercentOfRightAnswers)
+                ,args.gameResult.gameSettings.minPercentOfRightAnswers)
             percentRightAnswer.text = String.format(
-                getString(R.string.percentage_of_correct_answers_s_min_s),getPercent(),result.gameSettings.minPercentOfRightAnswers
+                getString(R.string.percentage_of_correct_answers_s_min_s),getPercent(),args.gameResult.gameSettings.minPercentOfRightAnswers
             )
         }
     }
 
-    private fun getPercent() = with(result){
+    private fun getPercent() = with(args.gameResult){
        if (countOfQuestions == 0){
            0
        }else{
@@ -79,26 +77,9 @@ class ResultFragment : Fragment() {
         }
     }
 
-    fun parsParams(){
-        requireArguments().getParcelable<GameResult>(KEY_GAME_RESULT)?.let {
-            result = it
-        }
-    }
+    
 
     private fun retryGame(){
         findNavController().popBackStack()
-    }
-
-    companion object{
-
-        const val KEY_GAME_RESULT = "result"
-
-        fun newInstance(gameResult: GameResult):ResultFragment{
-            return ResultFragment().apply {
-                arguments = Bundle().apply {
-                    putParcelable(KEY_GAME_RESULT,gameResult)
-                }
-            }
-        }
     }
 }

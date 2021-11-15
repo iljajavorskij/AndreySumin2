@@ -11,43 +11,44 @@
         android:id="@+id/timer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="60dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/annie_use_your_telescope"
         android:text="00:00"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:textColor="@color/white"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/annie_use_your_telescope"/>
+        android:textSize="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_sum"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_background"
-        android:textColor="@color/white"
+        android:background="@drawable/question_background"
         android:fontFamily="@font/annie_use_your_telescope"
-        android:text="46"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
+        android:text="46"
+        android:textColor="@color/blue"
         android:textSize="100sp"
-
         app:layout_constraintBottom_toTopOf="@id/text_num"
-        app:layout_constraintVertical_chainStyle="packed"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.637"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/text_num"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="92dp"
-        android:background="@drawable/button_background"
+        android:layout_marginBottom="128dp"
+        android:background="@drawable/question_background"
         android:fontFamily="@font/annie_use_your_telescope"
         android:gravity="center"
         android:text="46"
-        android:textColor="@color/white"
+        android:textColor="@color/blue"
         android:textSize="100sp"
         app:layout_constraintBottom_toTopOf="@id/options1"
         app:layout_constraintDimensionRatio="1:1"
@@ -59,11 +60,11 @@
         android:id="@+id/text_question"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_background"
+        android:background="@drawable/question_background"
         android:fontFamily="@font/annie_use_your_telescope"
         android:gravity="center"
         android:text="?"
-        android:textColor="@color/white"
+        android:textColor="@color/blue"
         android:textSize="100sp"
         app:layout_constraintBottom_toBottomOf="@id/text_num"
         app:layout_constraintDimensionRatio="1:1"
@@ -71,7 +72,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@id/text_num"
         app:layout_constraintTop_toTopOf="@id/text_num"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/options1"
@@ -82,9 +83,10 @@
         app:layout_constraintStart_toStartOf="parent"
         android:text="1"
         android:fontFamily="@font/annie_use_your_telescope"
-        android:textSize="49sp"
+        android:textSize="65sp"
         android:gravity="center"
-        android:background="@drawable/button_background"
+        android:textColor="@color/white"
+        android:background="@drawable/options_background"
         app:layout_constraintHorizontal_chainStyle="spread"/>
     <TextView
         android:id="@+id/options2"
@@ -95,9 +97,10 @@
         app:layout_constraintStart_toEndOf="@id/options4"
         android:text="2"
         android:fontFamily="@font/annie_use_your_telescope"
-        android:textSize="49sp"
+        android:textSize="65sp"
         android:gravity="center"
-        android:background="@drawable/button_background"/>
+        android:textColor="@color/white"
+        android:background="@drawable/options_background"/>
     <TextView
         android:id="@+id/options3"
         android:layout_width="0dp"
@@ -107,9 +110,10 @@
         app:layout_constraintStart_toEndOf="@id/options5"
         android:text="3"
         android:fontFamily="@font/annie_use_your_telescope"
-        android:textSize="49sp"
+        android:textSize="65sp"
         android:gravity="center"
-        android:background="@drawable/button_background"/>
+        android:textColor="@color/white"
+        android:background="@drawable/options_background"/>
     <TextView
         android:id="@+id/options4"
         android:layout_width="0dp"
@@ -120,9 +124,10 @@
         app:layout_constraintHorizontal_chainStyle="spread"
         android:text="4"
         android:fontFamily="@font/annie_use_your_telescope"
-        android:textSize="49sp"
+        android:textSize="65sp"
+        android:textColor="@color/white"
         android:gravity="center"
-        android:background="@drawable/button_background"/>
+        android:background="@drawable/options_background"/>
     <TextView
         android:id="@+id/options5"
         android:layout_width="0dp"
@@ -131,10 +136,11 @@
         app:layout_constraintStart_toEndOf="@id/options4"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="5"
+        android:textColor="@color/white"
         android:fontFamily="@font/annie_use_your_telescope"
-        android:textSize="49sp"
+        android:textSize="65sp"
         android:gravity="center"
-        android:background="@drawable/button_background"/>
+        android:background="@drawable/options_background"/>
     <TextView
         android:id="@+id/options6"
         android:layout_width="0dp"
@@ -143,10 +149,11 @@
         app:layout_constraintStart_toEndOf="@id/options5"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="6"
+        android:textColor="@color/white"
         android:gravity="center"
         android:fontFamily="@font/annie_use_your_telescope"
-        android:textSize="49sp"
-        android:background="@drawable/button_background"/>
+        android:textSize="65sp"
+        android:background="@drawable/options_background"/>
 
     <TextView
         android:id="@+id/answer_progress"
